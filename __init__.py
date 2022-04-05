@@ -1,7 +1,7 @@
 from mycroft import MycroftSkill, intent_file_handler
 import subprocess
 
-class ScreenWakeOnWakeWord(MycroftSkill):
+class ToggleLamp(MycroftSkill):
 		def __init__(self):
 				MycroftSkill.__init__(self)
 
@@ -10,8 +10,8 @@ class ScreenWakeOnWakeWord(MycroftSkill):
 
 		def handle_wakeword(self, message):
 				# self.speak("yes?")
-				subprocess.run("xset dpms force on", shell=True)
+				subprocess.run("GET http://192.168.1.4/\?m\=1\&o\=1", shell=True)
 
 def create_skill():
-    return ScreenWakeOnWakeWord()
+    return ToggleLamp()
 
